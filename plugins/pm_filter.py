@@ -3,7 +3,7 @@ import re
 import ast
 import math
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
-from Script import script
+from script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
@@ -103,12 +103,23 @@ async def next_page(bot, query):
             for file in files
         ]
 
+    btn.insert(0, 
+        [
+            InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL)
+        ]
+    )
+
     if 0 < offset <= 10:
         off_set = 0
     elif offset == 0:
         off_set = None
     else:
         off_set = offset - 10
+
+    btn.append(
+    [InlineKeyboardButton(text=DOWNLOAD_BTN_NAME, url=DOWNLOAD_BTN_URL)]
+)
+
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton("⏪ 𝗕𝗮𝗰𝗸", callback_data=f"next_{req}_{key}_{off_set}"),
@@ -371,7 +382,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f"{files.file_name}"
 
         try:
-            if AUTH_CHANNEL and not await is_subscribed(client, query):
+            if UPDATES_CHANNEL and not await is_subscribed(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             elif settings['botpm']:
@@ -392,7 +403,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except Exception as e:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
-        if AUTH_CHANNEL and not await is_subscribed(client, query):
+        if UPDATES_CHANNEL and not await is_subscribed(client, query):
             await query.answer("I Like Your Smartness, But Don't Be Oversmart Okay 😒", show_alert=True)
             return
         ident, file_id = query.data.split("#")
@@ -424,14 +435,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('⚚ ΛᎠᎠ MΞ ϮԾ YԾUᏒ GᏒԾUᎮ ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-        ], [
-            InlineKeyboardButton('⚡ SUBSCᏒIBΞ ⚡', url='https://youtube.com/c/GreyMattersBot'),
-            InlineKeyboardButton('🤖 UᎮDΛTΞS 🤖', url='{script.HOME_BUTTONURL_UPDATES')
-        ], [
-            InlineKeyboardButton('♻️ HΞLᎮ ♻️', callback_data='help'),
-            InlineKeyboardButton('♻️ ΛBOUT ♻️', callback_data='about')
-        ]]
+            InlineKeyboardButton(text=UPDATES_BTN_NAME, url=UPDATES_BTN_URL)
+            ],
+        ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
@@ -676,6 +682,17 @@ async def auto_filter(client, msg, spoll=False):
             for file in files
         ]
 
+    btn.insert(0, 
+        [
+            InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL)
+        ]
+    )
+
+    
+    btn.append(
+    [InlineKeyboardButton(text=DOWNLOAD_BTN_NAME, url=DOWNLOAD_BTN_URL)]
+)
+
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
@@ -856,4 +873,3 @@ async def manual_filters(client, message, text=False):
                 break
     else:
         return False
-   

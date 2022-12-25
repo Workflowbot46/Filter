@@ -9,20 +9,9 @@
 - ⟴ Custom URL Buttons (Updates channel, Add To Group, Force Sub, More...)
 
 
-
-
-<p align="center">
-  <img src="https://github.com/GreyMattersBot/url-auto-delete-shortener-bot/blob/main/assets/IMG_20220105_010453-removebg-preview.png" alt="GreyMatter's Bot Logo">
-</p>
-<h1 align="center">
-  <b>GreyMatter's Bot</b>
-</h1>
-
-
 ## Features
 
 - [x] 2GB+ Files Now Support
-- [x] URL Shortener Added
 - [x] Custom Buttons
 - [x] Auto Filter
 - [x] Manual Filter
@@ -48,7 +37,7 @@ Read [this](https://telegram.dog/GreyMatter_Bots) before you start messing up wi
 * `API_HASH`: Get this value from [telegram.org](https://my.telegram.org/apps)
 * `CHANNELS`: Username or ID of channel or group. Separate multiple IDs by space
 * `ADMINS`: Username or ID of Admin. Separate multiple Admins by space
-* `DATABASE_URI`: [mongoDB](https://www.mongodb.com) URI. Get this value from [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/h9QjSSmk5tw)
+* `DATABASE_URL`: [mongoDB](https://www.mongodb.com) URI. Get this value from [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/h9QjSSmk5tw)
 * `DATABASE_NAME`: Name of the database in [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/h9QjSSmk5tw)
 * `LOG_CHANNEL` : A channel to log the activities of bot. Make sure bot is an admin in the channel.
 ### Optional Variables
@@ -56,8 +45,6 @@ Read [this](https://telegram.dog/GreyMatter_Bots) before you start messing up wi
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
 * Check [info.py](https://github.com/GreyMattersBot/Advance-EvaMaria/blob/main/info.py) for more
 ## EXTRA FEATURES
-* `URL_SHORTENR_WEBSITE`: URL Shortener Website Link ( Without https://)
-* `URL_SHORTNER_WEBSITE_API`: URL Shortener Website API key
 * `SELF_DELETE`: True if SELF_DELETE is On, False if Off
 * `SELF_DELETE_SECONDS`: Enter Seconds to be SELF_DELETE 
 * `START_TXT`: Enter Your Start Message
