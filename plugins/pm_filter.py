@@ -116,10 +116,6 @@ async def next_page(bot, query):
     else:
         off_set = offset - 10
 
-    btn.append(
-    [InlineKeyboardButton(text=DOWNLOAD_BTN_NAME, url=DOWNLOAD_BTN_URL)]
-)
-
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton("⏪ 𝗕𝗮𝗰𝗸", callback_data=f"next_{req}_{key}_{off_set}"),
@@ -687,11 +683,6 @@ async def auto_filter(client, msg, spoll=False):
             InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL)
         ]
     )
-
-    
-    btn.append(
-    [InlineKeyboardButton(text=DOWNLOAD_BTN_NAME, url=DOWNLOAD_BTN_URL)]
-)
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"

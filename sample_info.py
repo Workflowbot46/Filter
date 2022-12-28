@@ -106,10 +106,5 @@ UPDATES_BTN_URL = "https://telegram.me/Nanthakps"                       # Recomm
 SUBSCRIBE_BTN_NAME = "⚡️ ꜱᴜʙꜱᴄʀɪʙᴇ ᴄʜᴀɴɴᴇʟ ⚡️ "                         # Recommended
 SUBSCRIBE_BTN_URL = "https://telegram.me/Nanthakps"                     # Recommended
 
-# How To Download Button
-DOWNLOAD_BTN_NAME = "⚡ ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ⚡"                             # Recommended
-DOWNLOAD_BTN_URL = "https://telegram.me/Nanthakps"                      # Recommended
-
-
 
 ## DEVELOPED BY ~ KPS 😎 ###
