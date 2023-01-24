@@ -430,9 +430,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
-        buttons = [[
-            InlineKeyboardButton(text=UPDATES_BTN_NAME, url=UPDATES_BTN_URL)
-            ],
+        buttons = [
+            [
+                InlineKeyboardButton(text=UPDATES_BTN_NAME, url=UPDATES_BTN_URL)
+            ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
