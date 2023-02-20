@@ -47,7 +47,7 @@ class script(object):
 3. Buttons should be properly parsed as markdown format
 
 <b>URL buttons:</b>
-<code>[Button Text](buttonurl:https://telegram.me/Nanthakps)</code>
+<code>[Button Text](buttonurl:https://telegram.me/TamilaRockers)</code>
 
 <b>Alert buttons:</b>
 <code>[Button Text](buttonalert:This is an alert message)</code>"""
